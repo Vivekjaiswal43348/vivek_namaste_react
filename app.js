@@ -1,22 +1,43 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Logo from '/public/images/foodAppLogo.jpeg';
+import '/src/header/header.css';
 
-/** 
- * JSX => babel transpiles => React.createElement => React JS - Object => render(JS)
- * * important information
- * ! Deprecated method
- * ? should this method be exposed in the public api
- * @param the method parameters
- *  */
+const Header = () => {
+	return (
+		<div className="header-wrapper">
+			<div className="logo-block">
+				<img alt="app-logo" src={Logo} />
+			</div>
+			<div className="nav-item-block">
+				<ul>
+					<li>Home</li>
+					<li>About us</li>
+					<li>Contact Us</li>
+					<li>Cart</li>
+					<li>Login</li>
+				</ul>
+			</div>
+		</div>
+	);
+};
 
-const jsxHeading = <h1>I am JSX H1 type heading element</h1>;
-const Heading = () =>{
-    return (
-        <h1>
-            Namste React fuctional component!!
-            {jsxHeading}
-        </h1>
-    )
-}
+const App = () => {
+	return (
+		<div>
+			{/* Header 
+                1. Logo
+                2. Nav Items
+            */}
+			<Header />
+			{/* Body 
+                1. Card conatiner and than cards
+            */}
+
+			{/* Footer */}
+		</div>
+	);
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Heading />);
+root.render(<App/>);

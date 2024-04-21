@@ -1,0 +1,24 @@
+.header-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid gray;
+    padding: 4px;
+    border-radius: 6px;
+}
+.header-wrapper  .logo-block{
+    height: 57px;
+}
+.header-wrapper  .logo-block  img{
+    width: 100px;
+}
+.header-wrapper .nav-item-block ul {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.header-wrapper .nav-item-block ul li {
+   display: inline;
+   padding: 10px;
+}
