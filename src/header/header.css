@@ -6,6 +6,7 @@
     border: 1px solid gray;
     padding: 4px;
     border-radius: 6px;
+    margin-bottom: 2px;
 }
 .header-wrapper  .logo-block{
     height: 57px;
