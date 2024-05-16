@@ -19,3 +19,10 @@ The goal of this project is very simple, to reach a common men's day to day need
 1. Installation: `npm i`
 2. Running App: `npx parcel index.html -p 8080`
 3. Open browser: `localhost:8080`
+
+# How to commit code to git hub branch
+branch URL: https://github.com/Vivekjaiswal43348/vivek_namaste_react
+
+1. Stage your changes: `git add .`
+2. Make a commit with your comment: `git commit -m <msg-here>`
+3. Push your changes to git hub branch: `git push origin <branch-name-here>`
