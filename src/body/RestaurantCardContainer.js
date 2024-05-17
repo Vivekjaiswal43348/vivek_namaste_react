@@ -1,29 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import Logo from "/public/images/foodAppLogo.jpeg";
-import "/src/header/header.css";
-import "/src/body/restCard.css";
+import RestCard from "./RestCard";
 
-// import Food1 from "/public/images/rest1.jpg";
-
-const Header = () => {
-	return (
-		<div className="header-wrapper">
-			<div className="logo-block">
-				<img alt="app-logo" src={Logo} />
-			</div>
-			<div className="nav-item-block">
-				<ul>
-					<li>Home</li>
-					<li>About us</li>
-					<li>Contact Us</li>
-					<li>Cart</li>
-					<li>Login</li>
-				</ul>
-			</div>
-		</div>
-	);
-};
 // interface RestaurantDataType {
 // 	resName: String;
 // 	foodTypes: String;
@@ -102,28 +78,10 @@ const RestaurantData = [
 		uuid: 10
 	},
 ];
-const RestCard = (props) => {
-	/**destructuring the props to get the individual variables */
-	const { image, name, type, rating } = props;
-	return (
-		<div className="rest-card">
-			<div className="food-img">
-				<img alt="food" src={image} />
-			</div>
-			<div className="food-description">
-				<h3>{name}</h3>
-				<p>{type}</p>
-				<p>{rating}</p>
-			</div>
-		</div>
-	);
-};
 
 const RestaurantCardContainer = () => {
 	return (
 		<div className="rest-card-container">
-			{/* <RestCard />
-			<RestCard /> */}
 			{RestaurantData.map((item, index) => {
 				return (
 					<RestCard
@@ -138,22 +96,5 @@ const RestaurantCardContainer = () => {
 		</div>
 	);
 };
-const App = () => {
-	return (
-		<div>
-			{/* Header 
-                1. Logo
-                2. Nav Items
-            */}
-			<Header />
-			{/* Body 
-                1. Card conatiner and than cards
-            */}
-			<RestaurantCardContainer />
-			{/* Footer */}
-		</div>
-	);
-};
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+export default RestaurantCardContainer;
