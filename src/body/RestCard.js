@@ -1,4 +1,3 @@
-
 const RestCard = (props) => {
 	/**destructuring the props to get the individual variables */
 	const { image, name, type, rating } = props;
@@ -14,4 +13,5 @@ const RestCard = (props) => {
 			</div>
 		</div>
 	);
-};export default RestCard;
+};
+export default RestCard;
