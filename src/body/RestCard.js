@@ -1,6 +1,6 @@
 const RestCard = (props) => {
 	/**destructuring the props to get the individual variables */
-	const { image, name, type, rating } = props;
+	const { image, name, type, rating, totalRatings,  deliveryTime} = props;
 	return (
 		<div className="rest-card">
 			<div className="food-img">
@@ -8,8 +8,9 @@ const RestCard = (props) => {
 			</div>
 			<div className="food-description">
 				<h3>{name}</h3>
-				<p>{type}</p>
-				<p>{`${rating} ratings`}</p>
+				<h5>{type}</h5>
+				<h5>{`${rating} ratings ${totalRatings}`}</h5>
+				<h5>{`Delivery Time: ${deliveryTime} minutes`}</h5>
 			</div>
 		</div>
 	);

@@ -11,6 +11,8 @@ const RestaurantCardContainer = () => {
 	// const restData = useState(RestaurantData); and below are same, the below line is an example
 	// of array destructuring
 	const [restList, setRestList] = useState([]);
+	const [searchedText, setSearchedText] = useState("");
+	const [filteredList, setFilteredList] = useState([]);
 
 	useEffect(() => {
 		// useEffect witout array dependency: It will render onlu after Ui loads
@@ -35,28 +37,51 @@ const RestaurantCardContainer = () => {
 		const resList = restAllData.map((item) => item.info);
 		console.log("getItemList :", resList);
 		setRestList(resList);
+		setFilteredList(resList);
 	};
-	console.log("Body");
+	console.log("Body:", searchedText);
+	useEffect(() => {
+		if (!searchedText) {
+			setFilteredList(restList);
+		} else {
+			let items = restList.filter((item) => {
+				return item.name.toLowerCase().includes(searchedText.toLowerCase()) || 
+				item.cuisines.join(", ").toLowerCase().includes(searchedText.toLowerCase());
+			});
+			setFilteredList(items);
+		}
+	}, [searchedText]);
 	return (
 		<>
 			<div className="filter-item">
-				<button
-					className="get-best-rest-btn"
-					onClick={() => {
-						let filteredData = restList.filter((item) => item.avgRating > 4);
-						setRestList(filteredData);
-						console.log("clicked:", filteredData);
-						// useCallback(()=>{
-						// 	setRestList(filteredData);
-						// 	console.log("clicked:", filteredData);
-						// }, [restList])
-					}}>
-					Get best restaurants
-				</button>
+				<div>
+					<input
+						className="inpt-txt"
+						placeholder="Search by restaurant name or cusines"
+						value={searchedText}
+						onChange={(e) => setSearchedText(e.target.value)}
+					/>
+					<button className="search-btn">Search</button>
+				</div>
+				<div>
+					<button
+						className="get-best-rest-btn"
+						onClick={() => {
+							let filteredData = restList.filter((item) => item.avgRating > 4);
+							setRestList(filteredData);
+							console.log("clicked:", filteredData);
+							// useCallback(()=>{
+							// 	setRestList(filteredData);
+							// 	console.log("clicked:", filteredData);
+							// }, [restList])
+						}}>
+						Get best restaurants
+					</button>
+				</div>
 			</div>
 			<div className="rest-card-container">
-				{restList && restList.length ? (
-					restList.map((item, index) => {
+				{filteredList && filteredList.length ? (
+					filteredList.map((item, index) => {
 						return (
 							<RestCard
 								key={item.id}
@@ -64,6 +89,8 @@ const RestaurantCardContainer = () => {
 								type={item.cuisines.join(", ")}
 								rating={item.avgRating}
 								image={item.cloudinaryImageId}
+								totalRatings={item.totalRatingsString}
+								deliveryTime={item.sla.deliveryTime}
 							/>
 						);
 					})

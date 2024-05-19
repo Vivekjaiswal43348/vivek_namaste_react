@@ -1,6 +1,6 @@
 .rest-card-container {
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 	border: 1px solid gray;
 	/* height: 70vh; */
 	border-radius: 4px;
@@ -22,20 +22,38 @@
 	height: 180px;
 	object-fit: cover;
 }
-.food-img{
-    /* padding: 5px; */
+.food-img {
+	/* padding: 5px; */
 	width: 100%;
 }
 .rest-card {
-    border: 0.5px solid #ffffff;
+	border: 0.5px solid #ffffff;
 	background-color: #f0f0f0;
 }
 .rest-card:hover {
 	border: 0.5px solid gray;
-    cursor: pointer;
-    background-color: #ffffff;
+	cursor: pointer;
+	background-color: #ffffff;
 }
 
-.food-description{
+.food-description {
+	padding: 5px;
+}
+.food-description h3,
+h5 {
+	padding-bottom: 3px;
+}
+.filter-item {
+	display: flex;
+}
+
+.filter-item .get-best-rest-btn,
+.search-btn {
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+.inpt-txt {
+	margin: 5px;
 	padding: 5px;
 }
