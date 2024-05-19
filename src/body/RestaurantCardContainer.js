@@ -1,6 +1,7 @@
 import RestCard from "./RestCard";
 import { RestaurantData } from "../utils/mockData";
 import { useState, useCallback, useEffect } from "react";
+import RestCardShimmer from "../utils/restCardShimmer";
 
 const RestaurantCardContainer = () => {
 	/** the below line represents the following htings:
@@ -35,6 +36,7 @@ const RestaurantCardContainer = () => {
 		console.log("getItemList :", resList);
 		setRestList(resList);
 	};
+	console.log("Body");
 	return (
 		<>
 			<div className="filter-item">
@@ -66,7 +68,7 @@ const RestaurantCardContainer = () => {
 						);
 					})
 				) : (
-					<>Loading...</>
+					<RestCardShimmer />
 				)}
 			</div>
 		</>
