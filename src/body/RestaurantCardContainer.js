@@ -21,6 +21,7 @@ const RestaurantCardContainer = () => {
 	});
 
 	getItemList = async () => {
+		// https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 		// swiggy api: https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 		// zomato: https://www.zomato.com/webroutes/auth/init
 		// const result = await fetch(
@@ -30,7 +31,7 @@ const RestaurantCardContainer = () => {
 		// const parsedData = await result.json();
 		const parsedData = result.data;
 		const restAllData =
-			parsedData?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+			parsedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 				?.restaurants;
 		const resList = restAllData.map((item) => item.info);
 		console.log("getItemList :", resList);
@@ -56,7 +57,7 @@ const RestaurantCardContainer = () => {
 	}, [searchedText]);
 
 	getUpdatedList = async () => {
-		let updateUrl = "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/update";
+		let updateUrl = "https://cors-anywhere.herokuapp.com/https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/update";
 		let postPayload = {
 			lat: 22.7199008,
 			lng: 75.857383,
