@@ -24,12 +24,16 @@ const RestaurantCardContainer = () => {
 		// https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 		// swiggy api: https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 		// zomato: https://www.zomato.com/webroutes/auth/init
-		// const result = await fetch(
-		// 	"https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-		// );
-		const result = await axios.get("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-		// const parsedData = await result.json();
+		
+		const proxyURL = "https://cors-anywhere.herokuapp.com/";
+		const dataURL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+		const timeStamp = Date.now();
+		const result = await axios.get(`${proxyURL}${dataURL}${timeStamp}`);
 		const parsedData = result.data;
+		
+		// const result = await fetch(`${proxyURL}${dataURL}${timeStamp}`);
+		// const parsedData = await result.json();
+
 		const restAllData =
 			parsedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 				?.restaurants;
@@ -57,7 +61,7 @@ const RestaurantCardContainer = () => {
 	}, [searchedText]);
 
 	getUpdatedList = async () => {
-		let updateUrl = "https://cors-anywhere.herokuapp.com/https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/update";
+		let updateUrl = "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/update";
 		let postPayload = {
 			lat: 22.7199008,
 			lng: 75.857383,

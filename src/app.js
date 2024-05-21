@@ -6,17 +6,29 @@ import "/src/body/restCard.css";
 
 import Header from "./header/Header";
 import RestaurantCardContainer from "./body/RestaurantCardContainer";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
+import ErrorPage from "./PageNotFound";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
 	return (
 		<div>
 			<Header />
-			
+
 			<RestaurantCardContainer />
 			{/* Footer */}
 		</div>
 	);
 };
 
+const router = createBrowserRouter([
+	{ path: "/", element: <App />, errorElement: <ErrorPage /> },
+	{ path: "/about", element: <AboutUs /> },
+	{ path: "/contact", element: <ContactUs /> },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+// root.render(<App />);
+root.render(<RouterProvider router={router} />);
