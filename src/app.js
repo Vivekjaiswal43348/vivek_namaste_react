@@ -10,23 +10,35 @@ import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import ErrorPage from "./PageNotFound";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = () => {
 	return (
 		<div>
 			<Header />
-
-			<RestaurantCardContainer />
+			{/* this should be there in body of page by default */}
+			{/* <RestaurantCardContainer /> */}
+			{/* this should be there in case of Aboust Us page */}
+			{/* <AboutUs /> */}
+			{/* this should be there in case of Contact Us page */}
 			{/* Footer */}
+			{/* <ContactUs /> */}
+			<Outlet/>
 		</div>
 	);
 };
 
 const router = createBrowserRouter([
-	{ path: "/", element: <App />, errorElement: <ErrorPage /> },
-	{ path: "/about", element: <AboutUs /> },
-	{ path: "/contact", element: <ContactUs /> },
+	{
+		path: "/",
+		element: <App />,
+		errorElement: <ErrorPage />,
+		children: [
+			{ path: "/", element: <RestaurantCardContainer /> },
+			{ path: "/about", element: <AboutUs /> },
+			{ path: "/contact", element: <ContactUs /> },
+		],
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
