@@ -1,33 +1,37 @@
 {
-  "name": "vivek_namaste_react",
-  "version": "1.0.0",
-  "description": "Sky rocket web development career, hurray",
-  "scripts": {
-    "test": "npm run test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vivekjaiswal43348/vivek_namaste_react.git"
-  },
-  "keywords": [
-    "react",
-    "reactjs",
-    "webapp",
-    "responsive",
-    "vivek"
-  ],
-  "author": "Vivek Jaiswal",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Vivekjaiswal43348/vivek_namaste_react/issues"
-  },
-  "homepage": "https://github.com/Vivekjaiswal43348/vivek_namaste_react#readme",
-  "devDependencies": {
-    "parcel": "^2.11.0",
-    "process": "^0.11.10"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+	"name": "vivek_namaste_react",
+	"version": "1.0.0",
+	"description": "Sky rocket web development career, hurray",
+	"scripts": {
+		"test": "npm run test",
+		"start": "npx parcel index.html -p 8080",
+		"proxy": "https://www.swiggy.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Vivekjaiswal43348/vivek_namaste_react.git"
+	},
+	"keywords": [
+		"react",
+		"reactjs",
+		"webapp",
+		"responsive",
+		"vivek"
+	],
+	"author": "Vivek Jaiswal",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Vivekjaiswal43348/vivek_namaste_react/issues"
+	},
+	"homepage": "https://github.com/Vivekjaiswal43348/vivek_namaste_react#readme",
+	"devDependencies": {
+		"buffer": "^6.0.3",
+		"parcel": "^2.11.0",
+		"process": "^0.11.10"
+	},
+	"dependencies": {
+		"axios": "^1.7.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	}
 }
