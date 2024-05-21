@@ -1,0 +1,50 @@
+.res-menu-container .go-bk-btn {
+	cursor: pointer;
+}
+
+.recommended-list ul .item-name {
+	font-weight: 800;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 20px;
+	letter-spacing: -0.3px;
+	color: rgba(2, 6, 12, 0.92);
+}
+
+.recommended-list ul .item-price {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: -0.3px;
+	color: rgba(2, 6, 12, 0.92);
+}
+
+.recommended-list ul p .item-rating {
+	color: rgb(17, 102, 73);
+	margin-left: 2px;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+	letter-spacing: -0.1px;
+}
+.recommended-list ul p .item-rating-count {
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 16px;
+	letter-spacing: -0.3px;
+	color: rgba(2, 6, 12, 0.6);
+}
+
+.recommended-list ul .item-desc {
+	margin-top: 12px;
+	word-break: break-all;
+	max-height: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.6);
+}

@@ -3,6 +3,7 @@ import { RestaurantData } from "../utils/mockData";
 import { useState, useCallback, useEffect } from "react";
 import RestCardShimmer from "../utils/restCardShimmer";
 import axios from "axios";
+// import { Link } from "react-router-dom";
 
 const RestaurantCardContainer = () => {
 	/** the below line represents the following htings:
@@ -24,13 +25,14 @@ const RestaurantCardContainer = () => {
 		// https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 		// swiggy api: https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 		// zomato: https://www.zomato.com/webroutes/auth/init
-		
-		const proxyURL = "https://cors-anywhere.herokuapp.com/";
-		const dataURL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
+		// const proxyURL = "https://cors-anywhere.herokuapp.com/";
+		const dataURL =
+			"https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 		const timeStamp = Date.now();
-		const result = await axios.get(`${proxyURL}${dataURL}${timeStamp}`);
+		const result = await axios.get(`${dataURL}${timeStamp}`);
 		const parsedData = result.data;
-		
+
 		// const result = await fetch(`${proxyURL}${dataURL}${timeStamp}`);
 		// const parsedData = await result.json();
 
@@ -61,7 +63,7 @@ const RestaurantCardContainer = () => {
 	}, [searchedText]);
 
 	getUpdatedList = async () => {
-		let updateUrl = "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/update";
+		let updateUrl = "https://www.swiggy.com/dapi/restaurants/list/update";
 		let postPayload = {
 			lat: 22.7199008,
 			lng: 75.857383,
@@ -143,24 +145,28 @@ const RestaurantCardContainer = () => {
 				{filteredList && filteredList.length ? (
 					filteredList.map((item, index) => {
 						return (
-							<RestCard
-								key={item.id}
-								name={item.name}
-								type={item.cuisines.join(", ")}
-								rating={item.avgRating}
-								image={item.cloudinaryImageId}
-								totalRatings={item.totalRatingsString}
-								deliveryTime={item.sla.deliveryTime}
-							/>
+							// <Link to={"/restaurant/" + item.id} key={item.id}>
+								<RestCard
+									key={item.id}
+									name={item.name}
+									type={item.cuisines.join(", ")}
+									rating={item.avgRating}
+									image={item.cloudinaryImageId}
+									totalRatings={item.totalRatingsString}
+									deliveryTime={item.sla.deliveryTime}
+									itemID={item.id}
+								/>
+							// </Link>
 						);
 					})
 				) : (
 					<RestCardShimmer />
 				)}
 			</div>
-			<div onScroll={() => {
+			<div
+				onScroll={() => {
 					console.log("scrolll");
-				}}	></div>
+				}}></div>
 		</>
 	);
 };

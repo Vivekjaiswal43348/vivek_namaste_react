@@ -9,6 +9,7 @@ import RestaurantCardContainer from "./body/RestaurantCardContainer";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import ErrorPage from "./PageNotFound";
+import RestaurantMenu from "./body/RestaurantMenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
 			{ path: "/", element: <RestaurantCardContainer /> },
 			{ path: "/about", element: <AboutUs /> },
 			{ path: "/contact", element: <ContactUs /> },
+			{ path: "/restaurant/:resID", element: <RestaurantMenu /> },
 		],
 	},
 ]);

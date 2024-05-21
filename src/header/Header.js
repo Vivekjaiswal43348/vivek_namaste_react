@@ -1,5 +1,6 @@
 import Logo from "../../public/images/foodAppLogo.jpeg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,9 +12,9 @@ const Header = () => {
 			</div>
 			<div className="nav-item-block">
 				<ul>
-					<li>Home</li>
-					<li>About us</li>
-					<li>Contact Us</li>
+					<li><Link to="/">Home</Link></li>
+					<li><Link to="/about">About us</Link></li>
+					<li><Link to="/contact">Contact Us</Link></li>
 					<li>Cart</li>
 					<li className="login-bth">
 						<button
