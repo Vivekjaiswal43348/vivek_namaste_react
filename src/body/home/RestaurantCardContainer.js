@@ -1,7 +1,7 @@
 import RestCard from "./RestCard";
-import { RestaurantData } from "../utils/mockData";
+import { RestaurantData } from "../../utils/mockData";
 import { useState, useCallback, useEffect } from "react";
-import RestCardShimmer from "../utils/restCardShimmer";
+import RestCardShimmer from "../../utils/restCardShimmer";
 import axios from "axios";
 // import { Link } from "react-router-dom";
 

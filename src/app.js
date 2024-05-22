@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Logo from "/public/images/foodAppLogo.jpeg";
 import "/src/header/header.css";
-import "/src/body/restCard.css";
+import "/src/body/home/restCard.css";
 
 import Header from "./header/Header";
-import RestaurantCardContainer from "./body/RestaurantCardContainer";
-import AboutUs from "./AboutUs";
-import ContactUs from "./ContactUs";
+import RestaurantCardContainer from "./body/home/RestaurantCardContainer";
+import AboutUs from "./body/about/AboutUs";
+import ContactUs from "./body/contact/ContactUs";
 import ErrorPage from "./PageNotFound";
-import RestaurantMenu from "./body/RestaurantMenu";
+import RestaurantMenu from "./body/home/RestaurantMenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 

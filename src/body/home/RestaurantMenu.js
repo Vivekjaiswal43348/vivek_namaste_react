@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import RestCardShimmer from "../utils/restCardShimmer";
+import RestCardShimmer from "../../utils/restCardShimmer";
 import { useParams } from "react-router-dom";
 import "./RestaurantMenu.css";
-import FOOD_IMG_PLACEHOLDER from "./../../public/images/food_img_placeholder.png";
+import FOOD_IMG_PLACEHOLDER from "./../../../public/images/food_img_placeholder.png";
 
 const RestaurantMenu = () => {
 	const [resMenuData, setResMenuData] = useState(null);
