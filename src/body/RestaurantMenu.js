@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestCardShimmer from "../utils/restCardShimmer";
 import { useParams } from "react-router-dom";
 import "./RestaurantMenu.css";
+import FOOD_IMG_PLACEHOLDER from "./../../public/images/food_img_placeholder.png";
 
 const RestaurantMenu = () => {
 	const [resMenuData, setResMenuData] = useState(null);
@@ -38,37 +39,52 @@ const RestaurantMenu = () => {
 				className="go-bk-btn">
 				Go Back
 			</button>
-			<h2>{name}</h2>
-			<h4>{`${avgRatingString} (${totalRatingsString}) . ${costForTwoMessage}`}</h4>
-
+			<div className="detail-header">
+				<h2>{name}</h2>
+				<h4>{`${avgRatingString} (${totalRatingsString}) . ${costForTwoMessage}`}</h4>
+			</div>
 			<div className="recommended-list">
-				<h2>Recommended (20)</h2>
+				{itemCards && <h2>Recommended ({itemCards.length})</h2>}
 				<ul style={{ listStyle: "none" }}>
 					{itemCards ? (
 						itemCards.map((item) => {
 							return (
 								<li key={item.card.info.id}>
-									<p className="item-name">{item.card.info.name}</p>
-									<p className="item-price">{`Rs.${
-										item.card.info.price / 100
-									}`}</p>
-									<p>
-										<span className="item-rating">
-											{`*${item.card.info.ratings.aggregatedRating.rating}`}
-										</span>
-										<span className="item-rating-count">
-											{` (${item.card.info.ratings.aggregatedRating.ratingCountV2})`}
-										</span>
-									</p>
-									<p className="item-desc">{item.card.info.description}</p>
-
+									<div className="food-row">
+										<div className="left-section">
+											<p className="item-name">{item.card.info.name}</p>
+											<p className="item-price">{`Rs.${
+												item.card.info.price / 100
+											}`}</p>
+											<p>
+												<span className="item-rating">
+													{`*${item.card.info.ratings.aggregatedRating.rating}`}
+												</span>
+												<span className="item-rating-count">
+													{` (${item.card.info.ratings.aggregatedRating.ratingCountV2})`}
+												</span>
+											</p>
+											<p className="item-desc">{item.card.info.description}</p>
+										</div>
+										<div className="right-section">
+											<img
+												alt="item-img"
+												src={
+													item.card.info.imageId
+														? "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
+														  item.card.info.imageId
+														: FOOD_IMG_PLACEHOLDER
+												}
+											/>
+										</div>
+									</div>
 									<hr></hr>
 								</li>
 							);
 						})
 					) : (
 						<>
-							<h5>No Data Found</h5>
+							<h5 className="no-data">No Data Found</h5>
 						</>
 					)}
 				</ul>

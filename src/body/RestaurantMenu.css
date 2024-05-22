@@ -1,8 +1,19 @@
+.res-menu-container {
+    margin: 0 12%;
+}
 .res-menu-container .go-bk-btn {
 	cursor: pointer;
 }
 
-.recommended-list ul .item-name {
+.recommended-list li .food-row {
+	display: flex;
+	justify-content: space-around;
+}
+.recommended-list li .food-row .right-section img {
+	width: 100px;
+	border-radius: 6px;
+}
+.recommended-list ul .food-row .item-name {
 	font-weight: 800;
 	font-weight: 800;
 	font-size: 18px;
@@ -11,7 +22,7 @@
 	color: rgba(2, 6, 12, 0.92);
 }
 
-.recommended-list ul .item-price {
+.recommended-list ul .food-row .item-price {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 19px;
@@ -19,7 +30,7 @@
 	color: rgba(2, 6, 12, 0.92);
 }
 
-.recommended-list ul p .item-rating {
+.recommended-list ul .food-row p .item-rating {
 	color: rgb(17, 102, 73);
 	margin-left: 2px;
 	font-weight: 700;
@@ -27,7 +38,7 @@
 	line-height: 16px;
 	letter-spacing: -0.1px;
 }
-.recommended-list ul p .item-rating-count {
+.recommended-list ul .food-row p .item-rating-count {
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 16px;
@@ -35,16 +46,44 @@
 	color: rgba(2, 6, 12, 0.6);
 }
 
-.recommended-list ul .item-desc {
+.recommended-list ul .food-row .item-desc {
 	margin-top: 12px;
 	word-break: break-all;
 	max-height: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-    font-weight: 200;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: -0.3px;
-    color: rgba(2, 6, 12, 0.6);
+	font-weight: 200;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: -0.3px;
+	color: rgba(2, 6, 12, 0.6);
+}
+
+.left-section {
+	width: 550px;
+}
+
+.recommended-list {
+	/* margin: 0 14%; */
+}
+.recommended-list ul {
+	padding: 0;
+}
+.recommended-list ul hr {
+	width: 90%;
+}
+.recommended-list h2 {
+	padding: 0 82px;
+}
+.detail-header {
+    /* margin: 0 19.5%; */
+    padding-bottom: 20px;
+}
+.detail-header h2{
+    padding-bottom: 8px;
+}
+.no-data{
+    text-align: center;
+    color: gray;
 }
