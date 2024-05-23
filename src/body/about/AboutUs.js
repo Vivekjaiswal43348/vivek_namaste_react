@@ -1,25 +1,6 @@
-// import AboutClassCard from "./AboutClassCard.JS";
-// import AboutFuncCard from "./AboutFuncCard";
-
-// const AboutUs = () => {
-// 	return (
-// 		<>
-// 			<div>AboutUs</div>
-// 			<div>
-// 				<AboutClassCard name={"Vivek Jaiswal"}/>
-// 			</div>
-// 			<div>
-// 				<AboutFuncCard name={"Vivek Jaiswal"}/>
-// 			</div>
-// 		</>
-// 	);
-// };
-
-// export default AboutUs;
-
 import React from "react";
 import AboutClassCard from "./AboutClassCard.JS";
-import AboutFuncCard from "./AboutFuncCard";
+// import AboutFuncCard from "./AboutFuncCard";
 class AboutUs extends React.Component {
 	constructor(props) {
 		super(props);
@@ -51,9 +32,6 @@ class AboutUs extends React.Component {
 				</button>
 				<div>
 					<AboutClassCard name={"Vivek Jaiswal"} />
-				</div>
-				<div>
-					<AboutFuncCard name={"Vivek Jaiswal"} />
 				</div>
 			</>
 		);
