@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
 import RestCardShimmer from "../../utils/restCardShimmer";
 import { useParams } from "react-router-dom";
 import "./RestaurantMenu.css";
 import FOOD_IMG_PLACEHOLDER from "./../../../public/images/food_img_placeholder.png";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-	const [resMenuData, setResMenuData] = useState(null);
 	const { resID } = useParams();
 	console.log("params:", resID);
-	const fetchResMenuData = async () => {
-		const SWIGGY_URL = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=${resID}`;
-		const result = await fetch(SWIGGY_URL);
-		const json = await result.json();
-		console.log("JSON:", json);
+	const resMenuData = useRestaurantMenu(resID);
 
-		setResMenuData(json);
-	};
-	useEffect(() => {
-		fetchResMenuData();
-	}, []);
 	if (resMenuData === null) return <RestCardShimmer />;
 	console.log(
 		"data",
