@@ -3,7 +3,7 @@ import { RestaurantData } from "../../utils/mockData";
 import { useState, useCallback, useEffect } from "react";
 import RestCardShimmer from "../../utils/restCardShimmer";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import useUserIsOnline from "../../utils/useUserIsOnline";
 
 const RestaurantCardContainer = () => {
 	/** the below line represents the following htings:
@@ -15,6 +15,7 @@ const RestaurantCardContainer = () => {
 	const [restList, setRestList] = useState([]);
 	const [searchedText, setSearchedText] = useState("");
 	const [filteredList, setFilteredList] = useState([]);
+	let isOnline = useUserIsOnline();
 
 	useEffect(() => {
 		// useEffect witout array dependency: It will render onlu after Ui loads
@@ -109,6 +110,13 @@ const RestaurantCardContainer = () => {
 		// getUpdatedList();
 	}, []);
 
+	if(isOnline === false){
+		return (
+			<h2>
+				Looks like you are offline! Check your internet connection.
+			</h2>
+		)
+	}
 	return (
 		<>
 			<div className="filter-item">
