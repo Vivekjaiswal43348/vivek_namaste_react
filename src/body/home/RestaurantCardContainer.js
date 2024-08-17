@@ -110,12 +110,8 @@ const RestaurantCardContainer = () => {
 		// getUpdatedList();
 	}, []);
 
-	if(isOnline === false){
-		return (
-			<h2>
-				Looks like you are offline! Check your internet connection.
-			</h2>
-		)
+	if (isOnline === false) {
+		return <h2>Looks like you are offline! Check your internet connection.</h2>;
 	}
 	return (
 		<>
@@ -154,16 +150,16 @@ const RestaurantCardContainer = () => {
 					filteredList.map((item, index) => {
 						return (
 							// <Link to={"/restaurant/" + item.id} key={item.id}>
-								<RestCard
-									key={item.id}
-									name={item.name}
-									type={item.cuisines.join(", ")}
-									rating={item.avgRating}
-									image={item.cloudinaryImageId}
-									totalRatings={item.totalRatingsString}
-									deliveryTime={item.sla.deliveryTime}
-									itemID={item.id}
-								/>
+							<RestCard
+								key={item.id}
+								name={item.name}
+								type={item.cuisines.join(", ")}
+								rating={item.avgRating}
+								image={item.cloudinaryImageId}
+								totalRatings={item.totalRatingsString}
+								deliveryTime={item.sla.deliveryTime}
+								itemID={item.id}
+							/>
 							// </Link>
 						);
 					})

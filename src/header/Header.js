@@ -1,10 +1,12 @@
 import Logo from "../../public/images/foodAppLogo.jpeg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useUserIsOnline from "../utils/useUserIsOnline";
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	console.log("Header");
+	let isOnline = useUserIsOnline();
+	console.log("Header", isOnline);
 	return (
 		<div className="header-wrapper">
 			<div className="logo-block">
@@ -12,9 +14,16 @@ const Header = () => {
 			</div>
 			<div className="nav-item-block">
 				<ul>
-					<li><Link to="/">Home</Link></li>
-					<li><Link to="/about">About us</Link></li>
-					<li><Link to="/contact">Contact Us</Link></li>
+					<li title="User Online-offline status">{isOnline === false ? "🤦‍♂️ ❌" : "😍 🛜"}</li>
+					<li>
+						<Link to="/">Home</Link>
+					</li>
+					<li>
+						<Link to="/about">About us</Link>
+					</li>
+					<li>
+						<Link to="/contact">Contact Us</Link>
+					</li>
 					<li>Cart</li>
 					<li className="login-bth">
 						<button
