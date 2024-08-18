@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense, lazy} from "react";
 import ReactDOM from "react-dom/client";
 import Logo from "/public/images/foodAppLogo.jpeg";
 import "/src/header/header.css";
@@ -6,12 +6,14 @@ import "/src/body/home/restCard.css";
 
 import Header from "./header/Header";
 import RestaurantCardContainer from "./body/home/RestaurantCardContainer";
-import AboutUs from "./body/about/AboutUs";
+// import AboutUS from "./body/about/AboutUs";
 import ContactUs from "./body/contact/ContactUs";
 import ErrorPage from "./PageNotFound";
 import RestaurantMenu from "./body/home/RestaurantMenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+// Optimize App: Lazy load/code splitting/dynamic loading
+const AboutUS = lazy(()=> import("./body/about/AboutUs"));
 
 const App = () => {
 	return (
@@ -36,7 +38,8 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage />,
 		children: [
 			{ path: "/", element: <RestaurantCardContainer /> },
-			{ path: "/about", element: <AboutUs /> },
+			{ path: "/about", element: <Suspense fallback={<h1>Loading...</h1>}><AboutUS /></Suspense> },
+			// { path: "/about", element: <AboutUS /> },
 			{ path: "/contact", element: <ContactUs /> },
 			{ path: "/restaurant/:resID", element: <RestaurantMenu /> },
 		],
