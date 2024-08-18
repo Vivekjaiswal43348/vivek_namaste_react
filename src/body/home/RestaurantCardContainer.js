@@ -3,6 +3,7 @@ import { RestaurantData } from "../../utils/mockData";
 import { useState, useCallback, useEffect } from "react";
 import RestCardShimmer from "../../utils/restCardShimmer";
 import axios from "axios";
+/** Optimize App: creating a custom hook for side effect tasks will provide code modularity,testing and code-reusability. */
 import useUserIsOnline from "../../utils/useUserIsOnline";
 
 const RestaurantCardContainer = () => {
