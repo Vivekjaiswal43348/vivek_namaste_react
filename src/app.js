@@ -12,7 +12,7 @@ import ErrorPage from "./PageNotFound";
 import RestaurantMenu from "./body/home/RestaurantMenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-// Optimize App: Lazy load/code splitting/dynamic loading
+// Optimize App: Lazy load/chunking/code splitting/dynamic loading
 const AboutUS = lazy(()=> import("./body/about/AboutUs"));
 
 const App = () => {
