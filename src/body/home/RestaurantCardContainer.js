@@ -146,7 +146,7 @@ const RestaurantCardContainer = () => {
 				</div>
 			</div>
 			<div
-				className="flex flex-wrap gap-2 my-3 mx-1 sm:mx-14 justify-center sm:justify-start"
+				className="flex flex-wrap gap-2 mb-8 mx-1 sm:mx-14 justify-center sm:justify-start"
 				onScroll={() => {
 					console.log("scrolll");
 				}}>

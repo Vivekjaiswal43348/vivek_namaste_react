@@ -21,43 +21,47 @@ const RestaurantMenu = () => {
 		resMenuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
 			?.card?.card?.itemCards;
 	return (
-		<div className="res-menu-container">
+		<div className="mx-32 my-6">
+			<div className="flex justify-between items-center">
+			<div className="my-3">
+				<h2 className="text-lg font-bold underline">{name}</h2>
+				<h4 className="text-sm">{`${avgRatingString} (${totalRatingsString}) . ${costForTwoMessage}`}</h4>
+			</div>
 			<button
 				onClick={() => {
 					history.back();
 				}}
-				className="go-bk-btn">
+				className="w-24 bg-sky-100 hover:shadow-md">
 				Go Back
 			</button>
-			<div className="detail-header">
-				<h2>{name}</h2>
-				<h4>{`${avgRatingString} (${totalRatingsString}) . ${costForTwoMessage}`}</h4>
 			</div>
-			<div className="recommended-list">
-				{itemCards && <h2>Recommended ({itemCards.length})</h2>}
+			<div className="">
+				{itemCards && 
+				<h2 className="text-lg font-medium underline">Recommended ({itemCards.length})</h2>}
 				<ul style={{ listStyle: "none" }}>
 					{itemCards ? (
 						itemCards.map((item) => {
 							return (
-								<li key={item.card.info.id}>
-									<div className="food-row">
+								<li key={item.card.info.id} className="m-8">
+									<div className="flex justify-between">
 										<div className="left-section">
-											<p className="item-name">{item.card.info.name}</p>
-											<p className="item-price">{`Rs.${
+											<p className="font-medium">{item.card.info.name}</p>
+											<p className="text-sm">{`Rs.${
 												item.card.info.price / 100
 											}`}</p>
-											<p>
-												<span className="item-rating">
+											{item.card.info.ratings.aggregatedRating.rating && <p>
+												<span className="text-sm">
 													{`*${item.card.info.ratings.aggregatedRating.rating}`}
 												</span>
-												<span className="item-rating-count">
+												<span className="">
 													{` (${item.card.info.ratings.aggregatedRating.ratingCountV2})`}
 												</span>
-											</p>
-											<p className="item-desc">{item.card.info.description}</p>
+											</p>}
+											<p className="text-xs">{item.card.info.description}</p>
 										</div>
-										<div className="right-section">
+										<div className="w-24 p-2">
 											<img
+											className="rounded-sm"
 												alt="item-img"
 												src={
 													item.card.info.imageId
@@ -74,7 +78,7 @@ const RestaurantMenu = () => {
 						})
 					) : (
 						<>
-							<h5 className="no-data">No Data Found</h5>
+							<h5 className="text-center	font-bold text-gray-400">No Data Found</h5>
 						</>
 					)}
 				</ul>
