@@ -123,7 +123,9 @@ const RestaurantCardContainer = () => {
 						value={searchedText}
 						onChange={(e) => setSearchedText(e.target.value)}
 					/>
-					<button className="border border-solid border-slate-300 w-24 h-9 rounded-sm bg-sky-100">Search</button>
+					<button className="border border-solid border-slate-300 w-24 h-9 rounded-sm bg-sky-100">
+						Search
+					</button>
 				</div>
 				<div>
 					<button
@@ -142,7 +144,7 @@ const RestaurantCardContainer = () => {
 				</div>
 			</div>
 			<div
-				className="rest-card-container"
+				className="flex flex-wrap gap-2 my-3 mx-1 sm:mx-14 justify-center sm:justify-start"
 				onScroll={() => {
 					console.log("scrolll");
 				}}>

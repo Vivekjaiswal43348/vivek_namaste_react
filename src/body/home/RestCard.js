@@ -10,18 +10,27 @@ const RestCard = (props) => {
 		navigate("/restaurant/" + itemID);
 	};
 	return (
-		<div className="rest-card" onClick={cardClickHandler}>
-			<div className="food-img">
+		<div
+			className="w-40 sm:w-48 p-1 cursor-pointer hover:bg-gray-100 hover:shadow-md"
+			onClick={cardClickHandler}>
+			<div className="p-1">
 				<img
+					className="rounded h-52"
 					alt="food"
 					src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${image}`}
 				/>
 			</div>
-			<div className="food-description">
-				<h3>{name}</h3>
-				<h5>{type}</h5>
-				<h5>{`${rating} ratings ${totalRatings}`}</h5>
-				<h5>{`Delivery Time: ${deliveryTime} minutes`}</h5>
+			<div className="flex flex-col justify-between">
+				<div className="">
+					<h3 className="text-sm font-bold truncate ..." title={name}>
+						{name}
+					</h3>
+					<h5 className="text-sm text-gray-600 truncate ..." title={type}>
+						{type}
+					</h5>
+					<h5 className="text-sm text-gray-600">{`${deliveryTime} mins`}</h5>
+				</div>
+				<h5 className="text-sm font-medium text-cyan-700">{`${rating} ratings ${totalRatings}`}</h5>
 			</div>
 		</div>
 	);
