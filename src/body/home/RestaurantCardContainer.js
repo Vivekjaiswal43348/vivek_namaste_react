@@ -37,9 +37,8 @@ const RestaurantCardContainer = () => {
 
 		// const result = await fetch(`${proxyURL}${dataURL}${timeStamp}`);
 		// const parsedData = await result.json();
-
 		const restAllData =
-			parsedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+			parsedData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 				?.restaurants;
 		const resList = restAllData.map((item) => item.info);
 		console.log("getItemList :", resList);

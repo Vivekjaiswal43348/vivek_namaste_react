@@ -8,12 +8,12 @@ const Header = () => {
 	let isOnline = useUserIsOnline();
 	console.log("Header", isOnline);
 	return (
-		<div className="flex justify-between p-5 bg-gray-100 items-center">
-			<div className="w-24">
+		<div className="flex flex-col justify-between p-5 bg-gray-100 items-center sm:flex-row">
+			<div className="w-[100px] md:w-24 hidden sm:block">
 				<img alt="app-logo" src={Logo} />
 			</div>
 			<div className="">
-				<ul className="flex gap-x-6">
+				<ul className="flex gap-x-4 sm:gap-x-6 text-nowrap flex-wrap">
 					<li title={`User is ${isOnline === false ? "Offline 😒" : "Online 😍"}`} className="hover:cursor-pointer">
 						{`🛜 ${isOnline === false ? "❌" : "✅"}`}
 					</li>
