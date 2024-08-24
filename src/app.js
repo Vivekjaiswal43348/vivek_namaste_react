@@ -4,6 +4,7 @@ import Logo from "/public/images/foodAppLogo.jpeg";
 import "/src/body/home/restCard.css";
 
 import Header from "./header/Header";
+import Footer from "./footer/Footer";
 import RestaurantCardContainer from "./body/home/RestaurantCardContainer";
 // import AboutUS from "./body/about/AboutUs";
 import ContactUs from "./body/contact/ContactUs";
@@ -26,6 +27,7 @@ const App = () => {
 			{/* Footer */}
 			{/* <ContactUs /> */}
 			<Outlet/>
+			<Footer/>
 		</div>
 	);
 };
