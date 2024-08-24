@@ -38,7 +38,7 @@ const RestaurantCardContainer = () => {
 		// const result = await fetch(`${proxyURL}${dataURL}${timeStamp}`);
 		// const parsedData = await result.json();
 		const restAllData =
-			parsedData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+			parsedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 				?.restaurants;
 		const resList = restAllData.map((item) => item.info);
 		console.log("getItemList :", resList);
@@ -115,19 +115,19 @@ const RestaurantCardContainer = () => {
 	}
 	return (
 		<>
-			<div className="filter-item">
+			<div className="flex gap-x-4 items-center flex-col sm:flex-row mb-2">
 				<div>
 					<input
-						className="inpt-txt"
+						className="p-2 m-3  border-solid border border-slate-300 rounded-sm"
 						placeholder="Search by restaurant name or cusines"
 						value={searchedText}
 						onChange={(e) => setSearchedText(e.target.value)}
 					/>
-					<button className="search-btn">Search</button>
+					<button className="border border-solid border-slate-300 w-24 h-9 rounded-sm bg-sky-100">Search</button>
 				</div>
 				<div>
 					<button
-						className="get-best-rest-btn"
+						className="border border-solid border-slate-300 w-40 h-9 rounded-sm"
 						onClick={() => {
 							let filteredData = restList.filter((item) => item.avgRating > 4);
 							setRestList(filteredData);

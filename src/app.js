@@ -1,7 +1,6 @@
 import React, {Suspense, lazy} from "react";
 import ReactDOM from "react-dom/client";
 import Logo from "/public/images/foodAppLogo.jpeg";
-// import "/src/header/header.css";
 import "/src/body/home/restCard.css";
 
 import Header from "./header/Header";

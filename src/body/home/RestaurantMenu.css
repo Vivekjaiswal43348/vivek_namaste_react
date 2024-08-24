@@ -1,4 +1,4 @@
-.res-menu-container {
+/* .res-menu-container {
     margin: 0 12%;
 }
 .res-menu-container .go-bk-btn {
@@ -64,9 +64,7 @@
 	width: 550px;
 }
 
-.recommended-list {
-	/* margin: 0 14%; */
-}
+
 .recommended-list ul {
 	padding: 0;
 }
@@ -76,14 +74,11 @@
 .recommended-list h2 {
 	padding: 0 82px;
 }
-.detail-header {
-    /* margin: 0 19.5%; */
-    padding-bottom: 20px;
-}
+
 .detail-header h2{
     padding-bottom: 8px;
 }
 .no-data{
     text-align: center;
     color: gray;
-}
+} */
