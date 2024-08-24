@@ -115,7 +115,7 @@ const RestaurantCardContainer = () => {
 	}
 	return (
 		<>
-			<div className="flex gap-x-4 items-center flex-col sm:flex-row mb-2">
+			<div className="flex gap-x-4 items-center flex-col sm:flex-row mb-2 justify-center lg:justify-end lg:mr-12">
 				<div>
 					<input
 						className="p-2 m-3  border-solid border border-slate-300 rounded-sm"
