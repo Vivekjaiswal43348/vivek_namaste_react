@@ -17,7 +17,7 @@ const AboutUS = lazy(() => import("./body/about/AboutUs"));
 
 const App = () => {
 	return (
-		<div>
+		<div className="">
 			<Header />
 			{/* this should be there in body of page by default */}
 			{/* <RestaurantCardContainer /> */}
@@ -27,7 +27,9 @@ const App = () => {
 			{/* Footer */}
 			{/* <ContactUs /> */}
 			<Outlet />
-			<Footer />
+			<div className="relative bottom-0 left-0 right-0">
+				<Footer />
+			</div>
 		</div>
 	);
 };
