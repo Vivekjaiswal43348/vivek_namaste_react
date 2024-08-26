@@ -10,10 +10,12 @@ import RestaurantCardContainer from "./body/home/RestaurantCardContainer";
 import ContactUs from "./body/contact/ContactUs";
 import ErrorPage from "./PageNotFound";
 import RestaurantMenu from "./body/home/RestaurantMenu";
-
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // Optimize App: Lazy load/chunking/code splitting/dynamic loading
 const AboutUS = lazy(() => import("./body/about/AboutUs"));
+
+import ErrorFallbackBoundar from "./utils/ErrorFallbackBoundar";
+import { ErrorBoundary } from "react-error-boundary";
 
 const App = () => {
 	return (
@@ -26,10 +28,10 @@ const App = () => {
 			{/* this should be there in case of Contact Us page */}
 			{/* Footer */}
 			{/* <ContactUs /> */}
-			<Outlet />
-			<div className="absolute bottom-0 left-0 right-0">
-				<Footer />
-			</div>
+			<ErrorBoundary FallbackComponent={ErrorFallbackBoundar}>
+				<Outlet />
+			</ErrorBoundary>
+			<Footer />
 		</div>
 	);
 };
@@ -57,5 +59,4 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<App />);
 root.render(<RouterProvider router={router} />);
