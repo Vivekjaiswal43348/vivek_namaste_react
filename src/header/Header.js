@@ -1,12 +1,12 @@
 import Logo from "../../public/images/foodAppLogo.jpeg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useUserIsOnline from "../utils/useUserIsOnline";
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	let isOnline = useUserIsOnline();
-	console.log("Header", isOnline);
+
 	return (
 		<div className="flex flex-col justify-between p-5 bg-gray-100 items-center sm:flex-row">
 			<div className="w-[100px] md:w-24 hidden sm:block">
