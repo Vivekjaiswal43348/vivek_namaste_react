@@ -32,7 +32,7 @@ const RestaurantMenu = () => {
 					history.back();
 				}}
 				className="w-24 bg-sky-100 hover:shadow-md">
-				Go Back
+				⬅️Go Back
 			</button>
 			</div>
 			<div className="">
