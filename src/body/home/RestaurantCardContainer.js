@@ -5,6 +5,8 @@ import RestCardShimmer from "../../utils/restCardShimmer";
 import axios from "axios";
 /** Optimize App: creating a custom hook for side effect tasks will provide code modularity,testing and code-reusability. */
 import useUserIsOnline from "../../utils/useUserIsOnline";
+import RestCardVegNonVegHOC from "./RestCardVegNonVegHOC";
+
 
 const RestaurantCardContainer = () => {
 	/** the below line represents the following htings:
@@ -16,6 +18,8 @@ const RestaurantCardContainer = () => {
 	const [restList, setRestList] = useState([]);
 	const [searchedText, setSearchedText] = useState("");
 	const [filteredList, setFilteredList] = useState([]);
+	const WithHOCRestCard = RestCardVegNonVegHOC(RestCard);
+
 	let isOnline = useUserIsOnline();
 
 	useEffect(() => {
@@ -151,22 +155,33 @@ const RestaurantCardContainer = () => {
 					console.log("scrolll");
 				}}>
 				{filteredList && filteredList.length ? (
-					filteredList.map((item, index) => {
-						return (
-							// <Link to={"/restaurant/" + item.id} key={item.id}>
-							<RestCard
-								key={item.id}
-								name={item.name}
-								type={item.cuisines.join(", ")}
-								rating={item.avgRating}
-								image={item.cloudinaryImageId}
-								totalRatings={item.totalRatingsString}
-								deliveryTime={item.sla.deliveryTime}
-								itemID={item.id}
-							/>
-							// </Link>
-						);
-					})
+					filteredList.map((item, index) => (
+						<>
+							{item.veg ? (
+								<WithHOCRestCard
+									key={item.id}
+									name={item.name}
+									type={item.cuisines.join(", ")}
+									rating={item.avgRating}
+									image={item.cloudinaryImageId}
+									totalRatings={item.totalRatingsString}
+									deliveryTime={item.sla.deliveryTime}
+									itemID={item.id}
+								/>
+							) : (
+								<RestCard
+									key={item.id}
+									name={item.name}
+									type={item.cuisines.join(", ")}
+									rating={item.avgRating}
+									image={item.cloudinaryImageId}
+									totalRatings={item.totalRatingsString}
+									deliveryTime={item.sla.deliveryTime}
+									itemID={item.id}
+								/>
+							)}
+						</>
+					))
 				) : (
 					<RestCardShimmer />
 				)}
