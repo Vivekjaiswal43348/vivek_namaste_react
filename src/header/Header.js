@@ -14,7 +14,7 @@ const Header = () => {
 			</div>
 			<div className="">
 				<ul className="flex gap-x-[10px] sm:gap-x-6 text-nowrap flex-wrap text-sm sm:text-base">
-					<li title={`User is ${isOnline === false ? "Offline 😒" : "Online 😍"}`} className="hover:cursor-pointer">
+					<li title={`You are ${isOnline === false ? "Offline 😒" : "Online 😍"}`} className="hover:cursor-pointer">
 						{`🛜 ${isOnline === false ? "❌" : "✅"}`}
 					</li>
 					<li>
