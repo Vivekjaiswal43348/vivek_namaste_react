@@ -7,7 +7,7 @@ const CardAccordion = (data) => {
 	const itemCards = data.data.itemCards;
 
 	return (
-		<div className={`border border-gray-200 p-[3] mb-1 rounded-md bg-gray-200 cursor-pointer ${!isOpen && 'hover:border-red-400'}`}>
+		<div className={`border border-gray-200 p-[3] mb-1 rounded-md bg-gray-200 cursor-pointer ${!isOpen && 'hover:border-green-400'}`}>
 			<div className={`flex justify-between p-[6] rounded-sm ${isOpen && 'bg-zinc-300'}`} onClick={() => setIsOpen(!isOpen)}>
 				<p className={isOpen ? "font-bold underline" : "font-bold"}>{data.data.title}</p>
 				{/* DOWN Icon */}
