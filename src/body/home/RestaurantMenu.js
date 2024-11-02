@@ -1,3 +1,4 @@
+import { useState } from "react";
 import RestCardShimmer from "../../utils/restCardShimmer";
 import { useParams } from "react-router-dom";
 import "./RestaurantMenu.css";
@@ -6,6 +7,7 @@ import CardAccordion from "./CardAccordion";
 
 const RestaurantMenu = () => {
 	const { resID } = useParams();
+	const [selectedAccordionIndex, setSelectedAccordionIndex] = useState(null);
 	console.log("params:", resID);
 	const resMenuData = useRestaurantMenu(resID);
 
@@ -28,7 +30,6 @@ const RestaurantMenu = () => {
 			}
 		);
 
-
 	return (
 		<div className="mx-60 my-6">
 			<div className="flex justify-between items-center">
@@ -44,12 +45,16 @@ const RestaurantMenu = () => {
 					⬅️Go Back
 				</button>
 			</div>
-
 			{accordionData.map((item, index) => (
 				<>
-				<CardAccordion 
-				data={item.card.card} 
-				key={index} />
+					<CardAccordion
+						data={item.card.card}
+						key={index}
+						isAccordionOpen={selectedAccordionIndex === index}
+						currentIndex={index}
+						selectedIndex={selectedAccordionIndex}
+						setIndexVal={(val) => setSelectedAccordionIndex(val)}
+					/>
 				</>
 			))}
 		</div>

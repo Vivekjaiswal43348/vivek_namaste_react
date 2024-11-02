@@ -1,17 +1,35 @@
 import React from "react";
-import { useState } from "react";
 import FOOD_IMG_PLACEHOLDER from "./../../../public/images/food_img_placeholder.png";
 
 const CardAccordion = (data) => {
-	const [isOpen, setIsOpen] = useState(false);
 	const itemCards = data.data.itemCards;
+	const accordionSelectHandler = () => {
+		/** toggle accordion on clicking the accordion row */
+		data?.setIndexVal(
+			data.currentIndex !== data.selectedIndex
+				? data.currentIndex
+				: null
+		);
+	};
 
 	return (
-		<div className={`border border-gray-200 p-[3] mb-1 rounded-md bg-gray-200 cursor-pointer ${!isOpen && 'hover:border-green-400'}`}>
-			<div className={`flex justify-between p-[6] rounded-sm ${isOpen && 'bg-zinc-300'}`} onClick={() => setIsOpen(!isOpen)}>
-				<p className={isOpen ? "font-bold underline" : "font-bold"}>{data.data.title}</p>
+		<div
+			className={`border border-gray-200 p-[3] mb-1 rounded-md bg-gray-200 cursor-pointer ${
+				!data.isAccordionOpen && "hover:border-green-400"
+			}`}>
+			<div
+				className={`flex justify-between p-[6] rounded-sm ${
+					data.isAccordionOpen && "bg-zinc-300"
+				}`}
+				onClick={() => accordionSelectHandler()}>
+				<p
+					className={
+						data.isAccordionOpen ? "font-bold underline" : "font-bold"
+					}>
+					{data.data.title}
+				</p>
 				{/* DOWN Icon */}
-				{!isOpen && (
+				{!data.isAccordionOpen && (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 16 16"
@@ -25,7 +43,7 @@ const CardAccordion = (data) => {
 					</svg>
 				)}
 				{/* UP Icon */}
-				{isOpen && (
+				{data.isAccordionOpen && (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 16 16"
@@ -39,7 +57,7 @@ const CardAccordion = (data) => {
 					</svg>
 				)}
 			</div>
-			{isOpen && (
+			{data.isAccordionOpen && (
 				<div className="">
 					<ul style={{ listStyle: "none" }}>
 						{itemCards ? (
