@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Logo from "/public/images/foodAppLogo.jpeg";
 import "/src/body/home/restCard.css";
@@ -16,23 +16,31 @@ const AboutUS = lazy(() => import("./body/about/AboutUs"));
 
 import ErrorFallbackBoundar from "./utils/ErrorFallbackBoundar";
 import { ErrorBoundary } from "react-error-boundary";
+import UserContext from "./utils/UserContext";
 
 const App = () => {
+	const [authUserName, setAuthUserName] = useState("");
+
+	useEffect(() => {
+		setAuthUserName("Akshay");
+	}, []);
 	return (
-		<div>
-			<Header />
-			{/* this should be there in body of page by default */}
-			{/* <RestaurantCardContainer /> */}
-			{/* this should be there in case of Aboust Us page */}
-			{/* <AboutUs /> */}
-			{/* this should be there in case of Contact Us page */}
-			{/* Footer */}
-			{/* <ContactUs /> */}
-			<ErrorBoundary FallbackComponent={ErrorFallbackBoundar}>
-				<Outlet />
-			</ErrorBoundary>
-			<Footer />
-		</div>
+		<UserContext.Provider value={{ loggedInUser: authUserName }}>
+			<div>
+				<Header />
+				{/* this should be there in body of page by default */}
+				{/* <RestaurantCardContainer /> */}
+				{/* this should be there in case of Aboust Us page */}
+				{/* <AboutUs /> */}
+				{/* this should be there in case of Contact Us page */}
+				{/* Footer */}
+				{/* <ContactUs /> */}
+				<ErrorBoundary FallbackComponent={ErrorFallbackBoundar}>
+					<Outlet />
+				</ErrorBoundary>
+				<Footer />
+			</div>
+		</UserContext.Provider>
 	);
 };
 
