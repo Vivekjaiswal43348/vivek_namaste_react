@@ -1,12 +1,15 @@
 import Logo from "../../public/images/foodAppLogo.jpeg";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useUserIsOnline from "../utils/useUserIsOnline";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const navigate  = useNavigate();
+	const userData = useContext(UserContext);
+
 	let isOnline = useUserIsOnline();
 	goToHomePage = () => {
 		navigate("/");
@@ -33,6 +36,7 @@ const Header = () => {
 						<Link to="/contact">Contact Us</Link>
 					</li>
 					<li>Cart</li>
+					<li>{userData.loggedInUser}</li>
 					<li className="login-bth">
 						<button
 							// style={{ backgroundColor: isLoggedIn ? "#61a461" : "#dc6c6c" }}
