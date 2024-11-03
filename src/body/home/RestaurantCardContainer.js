@@ -1,12 +1,12 @@
 import RestCard from "./RestCard";
 import { RestaurantData } from "../../utils/mockData";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useContext } from "react";
 import RestCardShimmer from "../../utils/restCardShimmer";
 import axios from "axios";
 /** Optimize App: creating a custom hook for side effect tasks will provide code modularity,testing and code-reusability. */
 import useUserIsOnline from "../../utils/useUserIsOnline";
 import RestCardVegNonVegHOC from "./RestCardVegNonVegHOC";
-
+import UserContext from "../../utils/UserContext";
 
 const RestaurantCardContainer = () => {
 	/** the below line represents the following htings:
@@ -19,7 +19,7 @@ const RestaurantCardContainer = () => {
 	const [searchedText, setSearchedText] = useState("");
 	const [filteredList, setFilteredList] = useState([]);
 	const WithHOCRestCard = RestCardVegNonVegHOC(RestCard);
-
+	const { loggedInUser, setAuthUserName } = useContext(UserContext);
 	let isOnline = useUserIsOnline();
 
 	useEffect(() => {
@@ -147,6 +147,14 @@ const RestaurantCardContainer = () => {
 						}}>
 						Get best restaurants
 					</button>
+				</div>
+				<div className="search">
+					<label>User Name : </label>
+					<input
+						className="border border-black"
+						value={loggedInUser}
+						onChange={(e) => setAuthUserName(e.target.value)}
+					/>
 				</div>
 			</div>
 			<div

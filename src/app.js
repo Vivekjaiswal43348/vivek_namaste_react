@@ -25,11 +25,11 @@ const App = () => {
 		setAuthUserName("Akshay");
 	}, []);
 	return (
-		<UserContext.Provider value={{ loggedInUser: authUserName }}>
+		<UserContext.Provider value={{ loggedInUser: authUserName, setAuthUserName }}>
 			<div>
-				<UserContext.Provider value={{ loggedInUser: "Elon Musk" }}>
+				{/* <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}> */}
 					<Header />
-				</UserContext.Provider>
+				{/* </UserContext.Provider> */}
 				{/* this should be there in body of page by default */}
 				{/* <RestaurantCardContainer /> */}
 				{/* this should be there in case of Aboust Us page */}
