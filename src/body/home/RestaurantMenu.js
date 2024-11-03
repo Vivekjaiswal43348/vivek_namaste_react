@@ -46,16 +46,14 @@ const RestaurantMenu = () => {
 				</button>
 			</div>
 			{accordionData.map((item, index) => (
-				<>
-					<CardAccordion
-						data={item.card.card}
-						key={index}
-						isAccordionOpen={selectedAccordionIndex === index}
-						currentIndex={index}
-						selectedIndex={selectedAccordionIndex}
-						setIndexVal={(val) => setSelectedAccordionIndex(val)}
-					/>
-				</>
+				<CardAccordion
+					data={item.card.card}
+					key={index}
+					isAccordionOpen={selectedAccordionIndex === index}
+					currentIndex={index}
+					selectedIndex={selectedAccordionIndex}
+					setIndexVal={(val) => setSelectedAccordionIndex(val)}
+				/>
 			))}
 		</div>
 	);
