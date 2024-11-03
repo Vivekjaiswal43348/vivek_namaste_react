@@ -1,5 +1,6 @@
 import React from "react";
 import AboutClassCard from "./AboutClassCard.JS";
+import UserContext from "../../utils/UserContext";
 
 class AboutUs extends React.Component {
 	constructor(props) {
@@ -46,6 +47,13 @@ class AboutUs extends React.Component {
 					}}>
 					Add
 				</button>
+				<UserContext.Consumer>
+					{(userContextData) => (
+						<h1 className="font-bold">
+							Logged In User: {userContextData.loggedInUser}
+						</h1>
+					)}
+				</UserContext.Consumer>
 				<div>
 					<AboutClassCard
 						name={this.state.userInfo.name}
