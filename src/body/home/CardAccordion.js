@@ -1,8 +1,12 @@
 import React from "react";
 import FOOD_IMG_PLACEHOLDER from "./../../../public/images/food_img_placeholder.png";
-
+import { addItem } from "../../utils/slice/cartSlice";
+import { useDispatch } from "react-redux";
+	
 const CardAccordion = (data) => {
 	const itemCards = data.data.itemCards;
+	const dispatch = useDispatch();
+
 	const accordionSelectHandler = () => {
 		/** toggle accordion on clicking the accordion row */
 		data?.setIndexVal(
@@ -11,11 +15,13 @@ const CardAccordion = (data) => {
 				: null
 		);
 	};
-
+	const addItemHandler = (itemInfo) => {
+		dispatch(addItem(itemInfo))
+	}
 	return (
 		<div
-			className={`border border-gray-200 p-[3] mb-1 rounded-md bg-gray-200 cursor-pointer ${
-				!data.isAccordionOpen && "hover:border-green-400"
+			className={`border border-gray-500 px-1 rounded-mdborder-border-gray-500 px-1 rounded-mdgray-200 p-[3] mb-1 rounded-md bg-gray-200 cursor-pointer ${
+				!data.isAccordionOpen && "hover:border-border-gray-500 px-1 rounded-mdgreen-400"
 			}`}>
 			<div
 				className={`flex justify-between p-[6] rounded-sm ${
@@ -81,6 +87,9 @@ const CardAccordion = (data) => {
 													</p>
 												)}
 												<p className="text-xs">{item.card.info.description}</p>
+												<button onClick={() => addItemHandler(item.card.info)} className="border border-gray-500 px-1 rounded-md">
+													Add +
+												</button>
 											</div>
 											<div className=" p-2">
 												<img

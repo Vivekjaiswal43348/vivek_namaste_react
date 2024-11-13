@@ -1,6 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import Logo from "/public/images/foodAppLogo.jpeg";
 import "/src/body/home/restCard.css";
 
 import Header from "./header/Header";
@@ -17,6 +16,8 @@ const AboutUS = lazy(() => import("./body/about/AboutUs"));
 import ErrorFallbackBoundar from "./utils/ErrorFallbackBoundar";
 import { ErrorBoundary } from "react-error-boundary";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const App = () => {
 	const [authUserName, setAuthUserName] = useState("");
@@ -25,6 +26,7 @@ const App = () => {
 		setAuthUserName("Akshay");
 	}, []);
 	return (
+		<Provider store={appStore}>
 		<UserContext.Provider value={{ loggedInUser: authUserName, setAuthUserName }}>
 			<div>
 				{/* <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}> */}
@@ -43,6 +45,7 @@ const App = () => {
 				<Footer />
 			</div>
 		</UserContext.Provider>
+		</Provider>
 	);
 };
 

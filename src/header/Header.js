@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 import useUserIsOnline from "../utils/useUserIsOnline";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const navigate  = useNavigate();
 	const userData = useContext(UserContext);
-
+	
+	/** subscribing to the store using a selector hook */
+	const cartItems = useSelector((store)=> store?.cart?.items);
+	console.log('cartItems:', cartItems);
+	
 	let isOnline = useUserIsOnline();
 	goToHomePage = () => {
 		navigate("/");
@@ -35,7 +40,7 @@ const Header = () => {
 					<li>
 						<Link to="/contact">Contact Us</Link>
 					</li>
-					<li>Cart</li>
+					<li>Cart ({cartItems.length} items)</li>
 					<li>{userData.loggedInUser}</li>
 					<li className="login-bth">
 						<button
