@@ -26,3 +26,11 @@ branch URL: https://github.com/Vivekjaiswal43348/vivek_namaste_react
 1. Stage your changes: `git add .`
 2. Make a commit with your comment: `git commit -m <msg-here>`
 3. Push your changes to git hub branch: `git push origin <branch-name-here>`
+
+# RTK (App Store)
+    - Install @reduxjs/toolkit and react-redux
+    - Build our store
+    - connect out store to our app
+    - Slice (like cartSlice)
+    - dispatch (action)
+    - selector (read the latest store data)
