@@ -1,36 +1,54 @@
-### SKY Rokcet Learning
+🪐 **SKY Rocket Learning**
 
-# Project Title
-`Raju Chat Center`
+# **Project Title:** Raju Chat Center
 
-## Project Description
-The goal of this project is very simple, to reach a common men's day to day need for there quick snacks.
+## 📌 Project Description
+This application addresses a simple, everyday need—fast snack ordering for the average person.
 
-## Table of Contents
+## 📄 Table of Contents
 
-## How to install and run the project
-1. Installation: `npm i`
-2. Running App: `npx parcel index.html -p 8080`
+### ⚙️ Installation & Running
 
-## How to use the project
-1. Installation: `npm i`
-2. Running App: `npx parcel index.html -p 8080`
-3. Open browser: `localhost:8080`
+```bash
+# install dependencies
+npm i
 
-## How to commit code to git hub branch
-branch URL: https://github.com/Vivekjaiswal43348/vivek_namaste_react
+# start the app on port 8080
+npx parcel index.html -p 8080
+```
 
-1. Stage your changes: `git add .`
-2. Make a commit with your comment: `git commit -m <msg-here>`
-3. Push your changes to git hub branch: `git push origin <branch-name-here>`
+Open your browser at: `http://localhost:8080`
 
-## RTK (App Store)
-    - Install @reduxjs/toolkit and react-redux
-    - Build our store
-    - connect out store to our app
-    - Slice (like cartSlice)
-    - dispatch (action)
-    - selector (read the latest store data)
+### 🛠️ Usage
+
+1. Execute the commands under “Installation & Running.”
+2. Visit `localhost:8080` in your browser to begin using the app.
+
+### 📁 Git Workflow
+
+**Repository URL:** `https://github.com/Vivekjaiswal43348/vivek_namaste_react`
+
+```bash
+# stage changes
+git add .
+
+# commit with a message
+git commit -m "<your message>"
+
+# push to a branch
+git push origin <branch-name>
+```
+
+### 🧠 Redux Toolkit (RTK) Overview
+
+To set up RTK in this project:
+
+1. Install `@reduxjs/toolkit` and `react-redux`.
+2. Create and configure the store.
+3. Wrap your app in `<Provider>` to connect the store.
+4. Define slices (e.g. `cartSlice`).
+5. Dispatch actions (`dispatch(...)`).
+6. Select state using selectors (e.g. `useSelector`).
 
 
 ## 01-03-2026 Writing Test cases in React JS:
