@@ -23,7 +23,7 @@ const RestaurantCardContainer = () => {
 	let isOnline = useUserIsOnline();
 
 	useEffect(() => {
-		// useEffect witout array dependency: It will render onlu after Ui loads
+		// useEffect witout array dependency: It will render only after UI loads
 		console.log("1");
 	});
 
@@ -33,25 +33,18 @@ const RestaurantCardContainer = () => {
 		// zomato: https://www.zomato.com/webroutes/auth/init
 
 		// const proxyURL = "https://cors-anywhere.herokuapp.com/";
-		const dataURL =
-			"https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7199008&lng=75.857383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-		const timeStamp = Date.now();
-		const result = await axios.get(`${dataURL}${timeStamp}`);
+		const dataURL = "https://namastedev.com/api/v1/listRestaurants";
+		// const timeStamp = Date.now();
+		const result = await axios.get(`${dataURL}`);
 		const parsedData = result.data;
 
 		// const result = await fetch(`${proxyURL}${dataURL}${timeStamp}`);
-		// const parsedData = await result.json();
-		const restAllData = parsedData?.data?.cards[1]?.card?.card?.gridElements
-			? parsedData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-					?.restaurants
-			: parsedData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-					?.restaurants;
+		// const parsedData = await result.json();		
+		const restAllData = parsedData.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
 		const resList = restAllData.map((item) => item.info);
-		console.log("getItemList :", resList);
 		setRestList(resList);
 		setFilteredList(resList);
 	};
-	console.log("Body:", searchedText);
 	useEffect(() => {
 		if (!searchedText) {
 			setFilteredList(restList);

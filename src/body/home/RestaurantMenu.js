@@ -24,7 +24,7 @@ const RestaurantMenu = () => {
 		resMenuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
 			(item) => {
 				return (
-					item.card.card["@type"] ===
+					item?.card?.card["@type"] ===
 					"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
 				);
 			}

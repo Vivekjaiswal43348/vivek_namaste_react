@@ -76,7 +76,8 @@ const CardAccordion = (data) => {
 												<p className="text-sm">{`Rs.${
 													item.card.info.price / 100
 												}`}</p>
-												{item.card.info.ratings.aggregatedRating.rating && (
+												{/* In the Namaste Dev API, there is no info about rating, so the below code will not render in UI */}
+												{item.card.info?.ratings?.aggregatedRating.rating && (
 													<p>
 														<span className="text-sm">
 															{`*${item.card.info.ratings.aggregatedRating.rating}`}
