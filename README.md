@@ -110,7 +110,7 @@ Path: coverage >> Icov-report >> index.html
 
 
 ## Use this website to create and edit a Readme File:
-[Raedme online editer](https://readme.so/editor)
+[Readme file online editer](https://readme.so/editor)
 
 
 
