@@ -48,6 +48,10 @@ git push origin <branch-name>
 - is there any alternative of nvm?
 Yes, it is Volta
 
+- How to generate comments automatic for code documentation?
+Ans: Type /** <press enter> */
+    or by adding extion: Doxygen by Christoph Schlosser
+
 ### 🧠 Redux Toolkit (RTK) Overview
 
 To set up RTK in this project:
@@ -91,7 +95,7 @@ To set up RTK in this project:
     npm install --save-dev jest-environment-jsdom
     ```
 
-
+- __ (two under scores): called as dunder
 
 https://www.robinwieruch.de/react-testing-library/
 - First Test case: Writing SUM function and its test case
