@@ -1,6 +1,6 @@
 🪐 **SKY Rocket Learning**
 
-# **Project Title:** Raju Chat Center
+# **Project Title:** Fast Food Corner
 
 ## 📌 Project Description
 This application addresses a simple, everyday need—fast snack ordering for the average person.
@@ -53,39 +53,40 @@ To set up RTK in this project:
 
 ## 01-03-2026 Writing Test cases in React JS:
 - Types of testing:
-    - DOM Testing Library: Base for React Testing Library.
+    - Manual Testing: it will be done by testers manually
+    - [DOM Testing Library](https://testing-library.com/docs/react-testing-library/intro): Base for React Testing Library. And it is also a base testing lib for other JS frameworks like Angular, Vue.
     - unit testing: test cases for each component.
     - integration testing: test cases for a feature, a complete flow where multiple components will come into the picture
     - e2e testing: 
-- React Testing libraries
-- React/Babel/Parcel configuration
+- React Testing libraries: It is build on the top of "DOM Testing Library."
+- React/Babel/Parcel configuration: why we need to do this???
 
 - First Test case: Writing SUM function and its test case
-- 2nd Test use: By rendering it
+- 2nd Test use: By rendering a react component using render() method
 
 - Medium level Tets cases (Unit test case): 
-    - Test case may include app-store (react-redux), routing(browser router), reg-exp
+    - Test case failed: Test case may include app-store (react-redux), routing(browser router), reg-exp which is not an in build feature of JSDOM.
     - Login/logout test case: fireEvent.click(loginBtn)
-    - RestaurantCard test case: use render method, pass props, create a Mock data to pass it in the props
+    - RestaurantCard test case: use render() method, pass props, create a Mock JSON data to pass it in the props
 
 - Advance Test cases (Integration test cases): Covers a flow or a complete feature
-    - Search flow: Add text, click search and check the new filtered count.
+    - Search flow: Add text, click search and then check the new filtered items count over the screen.
     - Test case do not know what is fetch method.
     - jest.fn(): we can mock JS fetch method using jest.fn({...}) function and return Promise & Mock data from this function.
-    - Get HTML element reference: by adding data-testid in HTML element
-    - act(): this is used to mock async-await feature of javascript in test cases.
+    - Get HTML element reference: by adding ``` data-testid ``` in HTML element
+    - async-await & act(): this is used to mock async-await feature of javascript in test cases.
     - click event: fireEvent.click();
-    - 
+
 
     - describe("", ()=>{});
     - beforeAll( ()=>{} );
-    - beforeEach( ()=>{} );
+    - beforeEach( ()=>{} );: might be use for clean up process.
     - afterAll( ()=>{} );
     - afterEach( ()=>{} );
 
 
 #### API calls: 
-- In test cases we does not make API calls, we just mock it.
+- In test cases we do not make API calls, we just mock it.
 
 #### why Test case do not know fetch method?
 Bcz test cases do not run on actual browser instead they run on browser like environment that is provided by JSDOM.
@@ -100,10 +101,18 @@ like: "watch-test": "jest --watch"
 
 #### can we render multiple components inside render() method at a same time?
 Yes,
+Like:
+```
+render(<>
+    <Component_A></Component_A>
+    <Component_B></Component_B>
+</>);
+```
 
 #### can we check which test cases are not covered under the existing test cases?
 Yes, we can do it opening the below file in browser.
-Path: coverage >> Icov-report >> index.html
+Path: coverage >> Icov-report >> index.html.
+And then by opening each individual component we can see which lines of code need to be covered under test cases.
 
 
 
