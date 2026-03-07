@@ -83,6 +83,15 @@ To set up RTK in this project:
     - why we need custom Parcel config?
         to use our custom babel.config.json file we need to disable default parcel config transpilation.
 
+- Generate a basic configuration file
+    Old: npx jest init
+    New: npm init jest@latest
+- issue: Test environment jest-environment-jsdom cannot be found.
+    ```
+    npm install --save-dev jest-environment-jsdom
+    ```
+
+
 
 https://www.robinwieruch.de/react-testing-library/
 - First Test case: Writing SUM function and its test case
