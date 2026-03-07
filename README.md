@@ -67,8 +67,6 @@ To set up RTK in this project:
     - unit testing: test cases for each component.
     - integration testing: test cases for a feature, a complete flow where multiple components will come into the picture
     - e2e testing: 
-- React Testing libraries: It is build on the top of "DOM Testing Library."
-- React/Babel/Parcel configuration: Since Parcel and Jest both uses Babel within them so we need to configure babel so that the common Babel( babel of Parcel and Jest) dependecies should be compatible with each other.
 
 - npm installations for react testing:
     ```
@@ -77,6 +75,14 @@ To set up RTK in this project:
     npm install --save-dev babel-jest @babel/core @babel/preset-env
     ```
 - [React Testing Library is not an alternative to Jest](https://www.robinwieruch.de/react-testing-library/)
+
+
+    - React Testing libraries: It is build on the top of "DOM Testing Library."
+    - React/Babel/Parcel configuration: Since Parcel and Jest both uses Babel within them so we need to configure babel so that the common Babel( babel of Parcel and Jest) dependecies should be compatible with each other.
+    - Parcel config: custom config is required to disable default parcel transpilation
+    - why we need custom Parcel config?
+        to use our custom babel.config.json file we need to disable default parcel config transpilation.
+
 
 https://www.robinwieruch.de/react-testing-library/
 - First Test case: Writing SUM function and its test case
@@ -136,8 +142,8 @@ And then by opening each individual component we can see which lines of code nee
 
 Some Pending work:
 - Complete Cart Section: this is pending from Create a Store class
-- Create a Error Boundary component and check its working.
-- Store: on page refresh data should not be lost
+- Create a Error Boundary component and check its working while your app breaks.
+- Store: on page refresh data should not be lost, right now it is not persistent.
 
 
 
