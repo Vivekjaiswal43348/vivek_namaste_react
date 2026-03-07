@@ -38,6 +38,15 @@ git commit -m "<your message>"
 # push to a branch
 git push origin <branch-name>
 ```
+### I am using nvm to manage multiple node versions in my windows OS if required:
+- nvm -v: to check nvm installed version
+- nvm install <node_version>
+- nvm use <node_version>
+- nvm list: to check list of all node versions in local system
+- nvm uninstall <node_version>
+
+- is there any alternative of nvm?
+Yes, it is Volta
 
 ### 🧠 Redux Toolkit (RTK) Overview
 
@@ -59,8 +68,17 @@ To set up RTK in this project:
     - integration testing: test cases for a feature, a complete flow where multiple components will come into the picture
     - e2e testing: 
 - React Testing libraries: It is build on the top of "DOM Testing Library."
-- React/Babel/Parcel configuration: why we need to do this???
+- React/Babel/Parcel configuration: Since Parcel and Jest both uses Babel within them so we need to configure babel so that the common Babel( babel of Parcel and Jest) dependecies should be compatible with each other.
 
+- npm installations for react testing:
+    ```
+    npm i -D @testing-library/react
+    npm i -D jest
+    npm install --save-dev babel-jest @babel/core @babel/preset-env
+    ```
+- [React Testing Library is not an alternative to Jest](https://www.robinwieruch.de/react-testing-library/)
+
+https://www.robinwieruch.de/react-testing-library/
 - First Test case: Writing SUM function and its test case
 - 2nd Test use: By rendering a react component using render() method
 
@@ -115,6 +133,11 @@ Path: coverage >> Icov-report >> index.html.
 And then by opening each individual component we can see which lines of code need to be covered under test cases.
 
 
+
+Some Pending work:
+- Complete Cart Section: this is pending from Create a Store class
+- Create a Error Boundary component and check its working.
+- Store: on page refresh data should not be lost
 
 
 

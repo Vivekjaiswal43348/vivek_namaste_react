@@ -29,7 +29,7 @@ const Header = () => {
 					<li
 						title={`You are ${isOnline === false ? "Offline 😒" : "Online 😍"}`}
 						className="hover:cursor-pointer">
-						{`🛜 ${isOnline === false ? "❌" : "✅"}`}
+						{`Online Status 🛜: ${isOnline === false ? "❌" : "✅"}`}
 					</li>
 					<li>
 						<Link to="/">Home</Link>
